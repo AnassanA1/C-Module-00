@@ -6,12 +6,14 @@
 /*   By: azghibat <azghibat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:56:14 by azghibat          #+#    #+#             */
-/*   Updated: 2025/10/17 18:14:46 by azghibat         ###   ########.fr       */
+/*   Updated: 2025/10/18 12:43:23 by azghibat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
+
+
 
 #include <string>
 
