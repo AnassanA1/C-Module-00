@@ -6,7 +6,7 @@
 /*   By: azghibat <azghibat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:03:03 by azghibat          #+#    #+#             */
-/*   Updated: 2025/10/20 16:06:46 by azghibat         ###   ########.fr       */
+/*   Updated: 2025/10/23 11:01:20 by azghibat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 bool isNumber(const std::string &str)
 {
     if (str.empty())
-        return false;
+        return (false);
     for (size_t i = 0; i < str.length(); i++)
     {
         if (!std::isdigit(str[i]))
-            return false;
+            return (false);
     }
-    return true;
+    return (true);
 }
 
 int main()

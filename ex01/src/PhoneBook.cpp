@@ -6,7 +6,7 @@
 /*   By: azghibat <azghibat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:58:56 by azghibat          #+#    #+#             */
-/*   Updated: 2025/10/20 16:05:07 by azghibat         ###   ########.fr       */
+/*   Updated: 2025/10/23 11:48:37 by azghibat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,18 @@
 
 PhoneBook::PhoneBook() : count(0) {}
 
-void PhoneBook::addContact()
+bool is_valid_input(std::string &input)
+{
+    while (true)
+    {
+        getline(std::cin, input);
+        if (input.empty())
+            return (false);
+        
+    }
+}
+
+int PhoneBook::addContact()
 {
 	std::string input;
 	int index = count % 8;
@@ -34,8 +45,9 @@ void PhoneBook::addContact()
 	std::cout << "Enter Nickname: ";
 	std::getline(std::cin, input);
 	contacts[index].setnickname(input);
-
+        
 	count++;
+    return (0);
 }
 
 int PhoneBook::getCount() const
