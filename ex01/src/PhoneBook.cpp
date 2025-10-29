@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azghibat <azghibat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anasszgh <anasszgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:58:56 by azghibat          #+#    #+#             */
-/*   Updated: 2025/10/23 11:48:37 by azghibat         ###   ########.fr       */
+/*   Updated: 2025/10/29 14:42:38 by anasszgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,51 @@
 
 PhoneBook::PhoneBook() : count(0) {}
 
-bool is_valid_input(std::string &input)
+std::string getValidInput(const std::string& prompt)
 {
+    std::string input;
+    
     while (true)
     {
-        getline(std::cin, input);
+        std::cout << prompt;
+        if (!std::getline(std::cin, input))
+        {
+            std::cout << std::endl;
+            exit(0);
+        }
         if (input.empty())
-            return (false);
+        {
+            std::cout << "Field cannot be empty! Please try again." << std::endl;
+            continue;
+        }
         
+        return input;
     }
 }
 
 int PhoneBook::addContact()
 {
-	std::string input;
-	int index = count % 8;
+    int index = count % 8;
 
-	std::cout << "Enter First Name: ";
-	std::getline(std::cin, input);
-	contacts[index].setfirstname(input);
-
-	std::cout << "Enter Last Name: ";
-	std::getline(std::cin, input);
-	contacts[index].setlastname(input);
-
-	std::cout << "Enter Phone Number: ";
-	std::getline(std::cin, input);
-	contacts[index].setphone(input);
-
-	std::cout << "Enter Nickname: ";
-	std::getline(std::cin, input);
-	contacts[index].setnickname(input);
+    contacts[index].setfirstname(getValidInput("Enter First Name: "));
+    contacts[index].setlastname(getValidInput("Enter Last Name: "));
+    contacts[index].setphone(getValidInput("Enter Phone Number: "));
+    contacts[index].setnickname(getValidInput("Enter Nickname: "));
         
-	count++;
+    count++;
     return (0);
 }
 
 int PhoneBook::getCount() const
 {
-	return count;
+    return count;
 }
 
 std::string format_dot(const std::string& str)
 {
-	if (str.length() > 10)
-		return (str.substr(0, 9) + '.');
-	return (str);
+    if (str.length() > 10)
+        return (str.substr(0, 9) + '.');
+    return (str);
 }
 
 void PhoneBook::displayContacts() const 
@@ -97,4 +96,3 @@ void PhoneBook::displayContact(int idx) const
     std::cout << "Phone: " << contacts[idx].getphone() << std::endl;
     std::cout << "Nickname: " << contacts[idx].getnickname() << std::endl;
 }
-
