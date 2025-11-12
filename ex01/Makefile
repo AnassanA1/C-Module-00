@@ -1,6 +1,6 @@
 NAME = PhoneBook
 
-CPP = g++
+CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
 SRC_DIR = src/

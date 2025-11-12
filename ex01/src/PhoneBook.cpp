@@ -6,7 +6,7 @@
 /*   By: anasszgh <anasszgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:58:56 by azghibat          #+#    #+#             */
-/*   Updated: 2025/10/29 14:42:38 by anasszgh         ###   ########.fr       */
+/*   Updated: 2025/11/08 19:28:22 by anasszgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ std::string getValidInput(const std::string& prompt)
             std::cout << "Field cannot be empty! Please try again." << std::endl;
             continue;
         }
-        
         return input;
     }
 }
@@ -44,7 +43,8 @@ int PhoneBook::addContact()
     contacts[index].setlastname(getValidInput("Enter Last Name: "));
     contacts[index].setphone(getValidInput("Enter Phone Number: "));
     contacts[index].setnickname(getValidInput("Enter Nickname: "));
-        
+    contacts[index].setDarkestSecret(getValidInput("Enter Darkest Secret: "));
+
     count++;
     return (0);
 }
@@ -95,4 +95,5 @@ void PhoneBook::displayContact(int idx) const
     std::cout << "Last Name: " << contacts[idx].getlastname() << std::endl;
     std::cout << "Phone: " << contacts[idx].getphone() << std::endl;
     std::cout << "Nickname: " << contacts[idx].getnickname() << std::endl;
+    std::cout << "Darkest Secret: " << contacts[idx].getDarkestSecret() << std::endl;
 }
